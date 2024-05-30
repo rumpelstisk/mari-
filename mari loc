@@ -1,0 +1,43 @@
+import turtle
+
+# Configuração da janela
+
+screen = turtle.Screen()
+screen.setup(width=800, height=600)
+screen.bgcolor("sky blue")
+
+# Desenho do globo
+globo = turtle.Turtle()
+globo.shape("circle")
+globo.color("blue")
+globo.penup()
+globo.goto(0, -200)
+globo.shapesize(3, 3)  # Tamanho do globo
+globo.stamp()  # Desenha o globo
+
+# Desenho da linha do equador
+linha_equador = turtle.Turtle()
+linha_equador.penup()
+linha_equador.goto(-400, 0)
+linha_equador.pendown()
+linha_equador.color("green")
+linha_equador.goto(400, 0)
+
+# Desenho dos meridianos
+for i in range(-180, 180, 30):
+    meridiano = turtle.Turtle()
+    meridiano.penup()
+    meridiano.goto(i*2, 190)
+    meridiano.pendown()
+    meridiano.goto(i*2, -190)
+
+# Desenho dos paralelos
+for i in range(-150, 180, 30):
+    paralelo = turtle.Turtle()
+    paralelo.penup()
+    paralelo.goto(-400, i*2)
+    paralelo.pendown()
+    paralelo.goto(400, i*2)
+
+# Esconder a tartaruga e finalizar
+turtle.done()
